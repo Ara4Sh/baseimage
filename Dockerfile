@@ -60,6 +60,13 @@ RUN GODNSMASQ_BASE_URL="https://github.com/janeczku/go-dnsmasq/releases/download
 ENV LANG=C.UTF-8
 ENV TERM=xterm
 
+# Simple editor
+RUN apk add nano --no-cache
+
+# Adding app user and group
+RUN addgroup -g 999 app && \
+    adduser -D  -G app -s /bin/false -u 999 app
+
 # Cleaning up
 RUN rm -rf /var/cache/apk/*
 
