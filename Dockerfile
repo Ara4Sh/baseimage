@@ -40,7 +40,8 @@ RUN apk add --no-cache tzdata \
 
 # Setting up S6 overlay
 COPY rootfs /
-RUN S6_BASE_URL="https://github.com/just-containers/s6-overlay/releases/download" && \
+RUN apk add --no-cache wget && \
+    S6_BASE_URL="https://github.com/just-containers/s6-overlay/releases/download" && \
     S6_PACKAGE_VERSION="v1.17.2.0" && \
     S6_PACKAGE_NAME="s6-overlay-amd64.tar.gz" && \
     wget "$S6_BASE_URL/$S6_PACKAGE_VERSION/$S6_PACKAGE_NAME" --no-check-certificate -O /tmp/s6-overlay.tar.gz && \
