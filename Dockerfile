@@ -33,7 +33,7 @@ RUN ALPINE_GLIBC_BASE_URL="https://github.com/andyshinn/alpine-pkg-glibc/release
         "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME"
 
 # Setting up Timezone
-RUN apk-install tzdata \
+RUN apk add --no-cache tzdata \
     && cp /usr/share/zoneinfo/Asia/Tehran /etc/localtime \
     && echo "Asia/Tehran" >  /etc/timezone \
     && apk del tzdata
