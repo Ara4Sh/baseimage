@@ -53,7 +53,7 @@ RUN apk add --no-cache bind-tools
 RUN GODNSMASQ_BASE_URL="https://github.com/janeczku/go-dnsmasq/releases/download" && \
     GODNSMASQ_VERSION="1.0.5" && \
     GODNSMASQ_NAME="go-dnsmasq-min_linux-amd64" && \
-    wget "$GODNSMASQ_BASE_URL/$GODNSMASQ_VERSION/$GODNSMASQ_NAME" -o /bin/go-dnsmasq && \
+    wget "$GODNSMASQ_BASE_URL/$GODNSMASQ_VERSION/$GODNSMASQ_NAME" --no-check-certificate -O /bin/go-dnsmasq && \
     chmod +x /bin/go-dnsmasq
 
 # Setting up Environment
