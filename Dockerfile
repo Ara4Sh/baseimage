@@ -48,14 +48,6 @@ RUN apk add --no-cache wget && \
     tar xvfz /tmp/s6-overlay.tar.gz -C / && \
     rm -f /tmp/s6-overlay.tar.gz
 
-# Setting up Go-dnsmasq
-RUN apk add --no-cache bind-tools
-RUN GODNSMASQ_BASE_URL="https://github.com/janeczku/go-dnsmasq/releases/download" && \
-    GODNSMASQ_VERSION="1.0.5" && \
-    GODNSMASQ_NAME="go-dnsmasq-min_linux-amd64" && \
-    wget "$GODNSMASQ_BASE_URL/$GODNSMASQ_VERSION/$GODNSMASQ_NAME" --no-check-certificate -O /bin/go-dnsmasq && \
-    chmod +x /bin/go-dnsmasq
-
 # Setting up Environment
 ENV LANG=C.UTF-8
 ENV TERM=xterm
